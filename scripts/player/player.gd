@@ -36,9 +36,6 @@ func _physics_process(delta: float):
 
 
 func _input(event: InputEvent):
-	if event is InputEventKey and event.keycode == KEY_ESCAPE:
-		get_tree().quit()
-
 	if Input.get_mouse_mode() == Input.MOUSE_MODE_CAPTURED and event is InputEventMouseMotion:
 		camera.rotation.y -= event.relative.x * MOUSE_SENSITIVITY
 		camera.rotation.x -= event.relative.y * MOUSE_SENSITIVITY
