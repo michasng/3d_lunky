@@ -1,0 +1,24 @@
+[gd_scene load_steps=5 format=3 uid="uid://bypu87aap8ewi"]
+
+[ext_resource type="Texture2D" uid="uid://ccpkso8ko2084" path="res://assets/textures/tilesets/dirt.png" id="1_5s5fw"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_3i653"]
+albedo_texture = ExtResource("1_5s5fw")
+uv1_scale = Vector3(3, 2, 1)
+texture_filter = 0
+
+[sub_resource type="BoxMesh" id="BoxMesh_1ophh"]
+material = SubResource("StandardMaterial3D_3i653")
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_ewijj"]
+
+[node name="MeshLibrary" type="Node3D"]
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+mesh = SubResource("BoxMesh_1ophh")
+skeleton = NodePath("StaticBody3D")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="MeshInstance3D"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="MeshInstance3D/StaticBody3D"]
+shape = SubResource("BoxShape3D_ewijj")
