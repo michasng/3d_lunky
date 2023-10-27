@@ -7,6 +7,7 @@ var menu: Menu = preload("res://scenes/menu/menu.tscn").instantiate()
 
 func _ready():
 	menu.continue_requested.connect(_close_menu)
+	Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
 
 
 func _input(event: InputEvent):

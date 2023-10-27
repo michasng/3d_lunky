@@ -13,10 +13,6 @@ var gravity = ProjectSettings.get_setting("physics/3d/default_gravity")
 var camera: Camera3D = $Camera3D
 
 
-func _ready():
-	Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
-
-
 func _physics_process(delta: float):
 	if Input.get_mouse_mode() != Input.MOUSE_MODE_CAPTURED:
 		return
