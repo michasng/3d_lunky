@@ -18,6 +18,9 @@ func _ready():
 
 
 func _physics_process(delta: float):
+	if Input.get_mouse_mode() != Input.MOUSE_MODE_CAPTURED:
+		return
+
 	if not is_on_floor():
 		velocity.y -= gravity * delta
 
@@ -36,7 +39,10 @@ func _physics_process(delta: float):
 
 
 func _input(event: InputEvent):
-	if Input.get_mouse_mode() == Input.MOUSE_MODE_CAPTURED and event is InputEventMouseMotion:
+	if Input.get_mouse_mode() != Input.MOUSE_MODE_CAPTURED:
+		return
+	
+	if event is InputEventMouseMotion:
 		camera.rotation.y -= event.relative.x * MOUSE_SENSITIVITY
 		camera.rotation.x -= event.relative.y * MOUSE_SENSITIVITY
 		camera.rotation.x = clamp(camera.rotation.x, -1.5, 1.5)
