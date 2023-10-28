@@ -1,7 +1,8 @@
-[gd_scene load_steps=5 format=3 uid="uid://diwbgqyrl5pbd"]
+[gd_scene load_steps=6 format=3 uid="uid://diwbgqyrl5pbd"]
 
 [ext_resource type="Script" path="res://scripts/player/player.gd" id="1_u2e04"]
 [ext_resource type="Script" path="res://scripts/player/grid_map_ray_cast.gd" id="2_m4juk"]
+[ext_resource type="Script" path="res://scripts/player/mouse_camera_rotation.gd" id="3_fhdqg"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_i35hh"]
 radius = 0.4
@@ -29,3 +30,7 @@ mesh = SubResource("CapsuleMesh_euk7p")
 script = ExtResource("2_m4juk")
 camera = NodePath("../Camera3D")
 body = NodePath("..")
+
+[node name="MouseCameraRotation" type="Node" parent="." node_paths=PackedStringArray("camera")]
+script = ExtResource("3_fhdqg")
+camera = NodePath("../Camera3D")
