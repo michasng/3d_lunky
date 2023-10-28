@@ -2,15 +2,16 @@ class_name Player
 extends CharacterBody3D
 
 
+@export var level: Level
+
+
 const SPEED = 5.0
 const JUMP_VELOCITY = 4.5
-
 const MOUSE_SENSITIVITY = 0.003
 
 var gravity = ProjectSettings.get_setting("physics/3d/default_gravity")
 
-@onready
-var camera: Camera3D = $Camera3D
+@onready var camera: Camera3D = $Camera3D
 
 
 func _physics_process(delta: float):
@@ -37,7 +38,7 @@ func _physics_process(delta: float):
 func _input(event: InputEvent):
 	if Input.get_mouse_mode() != Input.MOUSE_MODE_CAPTURED:
 		return
-	
+
 	if event is InputEventMouseMotion:
 		camera.rotation.y -= event.relative.x * MOUSE_SENSITIVITY
 		camera.rotation.x -= event.relative.y * MOUSE_SENSITIVITY

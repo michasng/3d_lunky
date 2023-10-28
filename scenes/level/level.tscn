@@ -1,8 +1,10 @@
-[gd_scene load_steps=2 format=3 uid="uid://dgxq4ys53fo8i"]
+[gd_scene load_steps=3 format=3 uid="uid://dgxq4ys53fo8i"]
 
 [ext_resource type="MeshLibrary" uid="uid://cm3qr1kifce0r" path="res://scenes/level/mesh_library.tres" id="1_17ayh"]
+[ext_resource type="Script" path="res://scripts/level/level.gd" id="1_lxebt"]
 
 [node name="Level" type="Node3D"]
+script = ExtResource("1_lxebt")
 
 [node name="GridMap" type="GridMap" parent="."]
 mesh_library = ExtResource("1_17ayh")
